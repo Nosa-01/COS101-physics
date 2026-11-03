@@ -1,0 +1,77 @@
+
+# PHYSICS FORMULA CALCULATOR
+# A program that solves five basic physics formulas
+
+def get_number(message):
+    while True:
+        try:
+            return float(input(message))
+        except ValueError:
+            print("Invalid input! Please enter a number.")
+
+
+def physics_calculator():
+    while True:
+        print("\n========== PHYSICS CALCULATOR ==========")
+        print("1. Work Done")
+        print("2. Speed")
+        print("3. Acceleration")
+        print("4. Force")
+        print("5. Kinetic Energy")
+        print("0. Exit")
+        print("========================================")
+
+        choice = input("Select a formula (0-5): ")
+
+        if choice == "1":
+            force = get_number("Enter force (Newtons): ")
+            distance = get_number("Enter distance (metres): ")
+
+            work = force * distance
+            print("Work Done =", work, "Joules")
+
+        elif choice == "2":
+            distance = get_number("Enter distance (metres): ")
+            time = get_number("Enter time (seconds): ")
+
+            if time == 0:
+                print("Time cannot be zero!")
+            else:
+                speed = distance / time
+                print("Speed =", speed, "m/s")
+
+        elif choice == "3":
+            final_velocity = get_number("Enter final velocity (m/s): ")
+            initial_velocity = get_number("Enter initial velocity (m/s): ")
+            time = get_number("Enter time (seconds): ")
+
+            if time == 0:
+                print("Time cannot be zero!")
+            else:
+                acceleration = (final_velocity - initial_velocity) / time
+                print("Acceleration =", acceleration, "m/s^2")
+
+        elif choice == "4":
+            mass = get_number("Enter mass (kg): ")
+            acceleration = get_number("Enter acceleration (m/s^2): ")
+
+            force = mass * acceleration
+            print("Force =", force, "Newtons")
+
+        elif choice == "5":
+            mass = get_number("Enter mass (kg): ")
+            velocity = get_number("Enter velocity (m/s): ")
+
+            kinetic_energy = 0.5 * mass * velocity ** 2
+            print("Kinetic Energy =", kinetic_energy, "Joules")
+
+        elif choice == "0":
+            print("Thank you for using the Physics Calculator!")
+            break
+
+        else:
+            print("Invalid selection! Choose a number from 0 to 5.")
+
+
+# Run the calculator
+physics_calculator()
